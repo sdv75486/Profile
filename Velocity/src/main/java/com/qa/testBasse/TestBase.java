@@ -8,11 +8,15 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import com.qa.pageLayers.HomePage;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
 	
 	public static WebDriver driver;
+	
+	public HomePage home;
 	
 	@BeforeMethod
 	public void setup() {
@@ -33,11 +37,13 @@ public class TestBase {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+		
+		home = new HomePage();
 	}
 	
 	@AfterMethod
 	public void tearDown() {
-		driver.quit();
+	//	driver.quit();
 	}
 
 }
