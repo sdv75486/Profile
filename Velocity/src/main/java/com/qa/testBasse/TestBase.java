@@ -9,6 +9,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import com.qa.pageLayers.HomePage;
+import com.qa.pageLayers.RegisterClass;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -17,7 +18,7 @@ public class TestBase {
 	public static WebDriver driver;
 	
 	public HomePage home;
-	
+	public RegisterClass reg;
 	@BeforeMethod
 	public void setup() {
 		String br = "chrome";
@@ -39,6 +40,7 @@ public class TestBase {
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
 		
 		home = new HomePage();
+		reg = new RegisterClass();
 	}
 	
 	@AfterMethod
